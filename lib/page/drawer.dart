@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:counter_7/forms.dart';
-import 'package:counter_7/dataBudget.dart';
+import 'package:counter_7/page/forms.dart';
+import 'package:counter_7/page/dataBudget.dart';
 import 'package:counter_7/main.dart';
+import 'package:counter_7/page/mywatchlist.dart';
 
 
 class myDrawer extends StatelessWidget {
@@ -50,6 +51,17 @@ class myDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const MyDataBudgetPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('My Watchlist'),
+            leading: Icon(Icons.data_object),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const WatchListPage()),
               );
             },
           ),
