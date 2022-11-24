@@ -4,7 +4,7 @@ import 'package:counter_7/page/drawer.dart';
 import 'package:flutter/material.dart';
 
 class WatchListDetail extends StatelessWidget {
-  final WatchList data;
+  final Mywatchlist data;
   const WatchListDetail({super.key, required this.data});
 
   @override
@@ -19,7 +19,7 @@ class WatchListDetail extends StatelessWidget {
         child: Column(
           children: [
             Center(
-              child: Text(data.film_tittle,
+              child: Text(data.fields.filmTittle,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32)),
             ),
             Row(
@@ -27,7 +27,7 @@ class WatchListDetail extends StatelessWidget {
                 Text("Release Date : ",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                Text(data.film_release_date,
+                Text(data.fields.filmReleaseDate,
                     style:
                         TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
               ],
@@ -37,7 +37,7 @@ class WatchListDetail extends StatelessWidget {
                 Text("Rating : ",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                Text(data.film_rating.toString() + "/10",
+                Text(data.fields.filmRating.toString() + "/10",
                     style:
                         TextStyle(fontWeight: FontWeight.normal, fontSize: 16)),
               ],
@@ -47,11 +47,11 @@ class WatchListDetail extends StatelessWidget {
                 Text("Status : ",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                if (data.film_watched)
+                if (data.fields.filmWatched == FilmWatched.SUDAH)
                   Text("Watched",
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 16)),
-                if (!data.film_watched)
+                if (data.fields.filmWatched == FilmWatched.BELUM)
                   Text("Unwatched",
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 16)),
@@ -69,7 +69,7 @@ class WatchListDetail extends StatelessWidget {
               ],
             ),
             Text(
-              data.film_review,
+              data.fields.filmReview,
               style: const TextStyle(
                 color: Colors.black,
               ),

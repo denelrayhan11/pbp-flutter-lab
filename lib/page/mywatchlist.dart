@@ -44,11 +44,11 @@ class _WatchListPageState extends State<WatchListPage> {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (_, index) => ListTile(
                           trailing: Checkbox(
-                            value: snapshot.data![index].watched_movie,
+                            value: snapshot.data![index].film_watched,
                             onChanged: (bool? newValue) {
                               setState(() {
-                                snapshot.data![index].watched_movie =
-                                    !snapshot.data![index].watched_movie;
+                                snapshot.data![index].film_watched =
+                                    !snapshot.data![index].film_watched;
                               });
                             },
                           ),
@@ -76,7 +76,7 @@ class _WatchListPageState extends State<WatchListPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "${snapshot.data![index].movie_name}",
+                                    "${snapshot.data![index].film_tittle}",
                                     style: const TextStyle(
                                       fontSize: 18.0,
                                       fontWeight: FontWeight.bold,
